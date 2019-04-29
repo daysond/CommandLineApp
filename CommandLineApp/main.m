@@ -11,7 +11,14 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        NSLog(@"Hello, World!");
+        while (true) {
+            char inputChars[255];
+            printf("Input a string: ");
+            fgets(inputChars, 255,stdin);
+            printf("Your string is %s\n", inputChars);
+            NSString *inputString = [NSString stringWithUTF8String:inputChars];
+            NSLog(@"Input was: %@", inputString);
+        }
     }
     return 0;
 }
