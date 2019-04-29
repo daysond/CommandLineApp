@@ -47,11 +47,30 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"output is %@",outputString);
             } else if (inputNumber == 6) {
                 outputString = [inputString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+            } else if (inputNumber == 7) {
+                NSString *alphabet = @"qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+                unsigned long int len = [inputString length];
+//                char inputChars[len];
+//                strcpy(inputChars, [inputString UTF8String]);
+                int count = 0;
+                
+                for (int i = 0; i < len ;i++){
+                    char letter = [inputString characterAtIndex:i];
+//                    NSString* letterStr = [NSString stringWithUTF8String:letter];
+                    NSLog(@"%c", letter);
+                    if ([alphabet containsString: [NSString stringWithFormat:@"%c",letter]]) {
+                        count ++;
+                        NSLog(@"das");
+                    }
+                }
+                outputString = [NSString stringWithFormat:@"letter count: %d", count];
+                
             } else {
                 outputString = @"invalid.";
 
             }
             NSLog(@"Output: %@", outputString);
+
         }
     }
     return 0;
